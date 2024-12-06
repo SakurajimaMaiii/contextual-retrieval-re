@@ -13,7 +13,6 @@ pip install openai tqdm langchain langchain_community langchain_huggingface fais
 python context_generation.py
 ```
 我生成的结果放在了 `/data/context_chunks_deepseek.json`。
-注意这一步如果 CPU 内存不够可能会报错，如果发生这种情况考虑把所有的数据分批次使用，然后merge到一起。
 
 得到包含上下文信息的chunk后，运行 `main.py`，这里我们使用的是 `faiss` 向量数据库，embedding 模型使用的是 [bge-large-en-v1.5](https://huggingface.co/BAAI/bge-large-en-v1.5)。
 运行 baseline （没有使用 contextual-retrieval)
@@ -28,6 +27,7 @@ python main.py --database_path data/context_chunks_deepseek.json --db_path faiss
 python main.py --database_path data/context_chunks_deepseek.json --db_path faiss_index_context --top_k 10 --load_local_db
 python main.py --database_path data/context_chunks_deepseek.json --db_path faiss_index_context --top_k 20 --load_local_db
 ```
+注意使用 `faiss` 数据库如果 CPU 内存不够可能会报错，如果发生这种情况考虑把所有的数据分批次使用，然后merge到一起。
 ## Result
 | Recall@K   | w/o context  | w/ context   |
 |-------|-------|-------|
@@ -35,6 +35,6 @@ python main.py --database_path data/context_chunks_deepseek.json --db_path faiss
  10|    82.7   | 88.7
  20|    86.7   | 91.9
 
-
+可以看到在给 chunk 添加上下文信息后，recall 明显提升。
 
 
