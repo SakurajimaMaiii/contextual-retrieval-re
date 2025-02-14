@@ -14,7 +14,7 @@ export OPENAI_API_KEY=XXX
 export OPENAI_BASE_URL=https://api.deepseek.com
 python context_generation.py --chat_model deepseek-chat
 ```
-想使用其他模型，如 `gpt-4o` 等，修改对应的 `OPENAI_API_KEY` ， `OPENAI_BASE_URL`，`chat-model` 即可。
+想使用其他模型，如 `gpt-4o` 等，修改对应的 `OPENAI_API_KEY` ， `OPENAI_BASE_URL`，`chat_model` 即可。
 我生成的结果放在了 `/data/context_chunks_deepseek.json`。[DeepSeek](https://www.deepseek.com/) 使用了硬盘缓存技术，如果请求前缀相同，价格是正常输入的十分之一。在当前任务场景下，可以节省非常多的 token 消耗，请参考[文档](https://api-docs.deepseek.com/guides/kv_cache)。
 
 得到包含上下文信息的chunk后，运行 `main.py`，这里我们使用的是 `faiss(cpu)` 向量数据库，embedding 模型使用的是 [bge-large-en-v1.5](https://huggingface.co/BAAI/bge-large-en-v1.5)。
