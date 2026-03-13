@@ -1,6 +1,6 @@
 # contextual-retrieval-re
 
-A simple reproduction of [contextual-retrieval](https://www.anthropic.com/news/contextual-retrieval) proposed by Anthropic. The official code is available [here](https://github.com/anthropics/claude-cookbooks/tree/main/capabilities/contextual-embeddings). The LLM used is `deepseek-chat`, and the embedding model used is `bge-large-en-v1.5`. It can run without GPU.
+A simple reproduction of [contextual-retrieval](https://www.anthropic.com/engineering/contextual-retrieval) proposed by Anthropic. The official code is available [here](https://github.com/anthropics/claude-cookbooks/tree/main/capabilities/contextual-embeddings). The LLM used is `deepseek-chat`, and the embedding model used is `bge-large-en-v1.5`. It can run without GPU.
 
 ## Dependencies
 
